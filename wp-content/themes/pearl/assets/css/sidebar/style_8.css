@@ -1,0 +1,112 @@
+@charset "UTF-8";
+
+.stm_markup__sidebar_divider aside.widget {
+    margin-bottom: 50px !important;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #cececf;
+}
+
+.stm_markup__sidebar_divider aside.widget .widgettitle {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #cececf;
+}
+
+.stm_markup__sidebar_divider aside.widget .widgettitle h5 {
+    margin-bottom: 0 !important;
+    font-size: 15px;
+}
+
+.stm_markup__sidebar_divider aside.widget.stm_widget_categories.style_1 ul li a {
+    font-weight: 700;
+}
+
+.stm_markup__sidebar_divider aside.widget.widget_search {
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+
+.stm_markup__sidebar_divider aside.widget.widget_search .search-form input[name="s"] {
+    background-color: #dddddd;
+}
+
+.stm_markup__sidebar_divider aside.widget.widget_search button {
+    background-color: transparent !important;
+}
+
+.stm_markup__sidebar_divider aside.widget.widget_search button i {
+    color: #666666;
+}
+
+.stm_markup__sidebar_divider aside.widget.widget_recent_entries ul li {
+    padding-left: 27px;
+}
+
+.stm_markup__sidebar_divider aside.widget.widget_recent_entries ul li:before {
+    content: '';
+    display: block;
+    top: 8px;
+    content: "" !important;
+    font-family: 'stmicons' !important;
+    background: transparent !important;
+}
+
+.stm_markup__sidebar_divider aside.widget.widget_recent_entries ul li a {
+    padding: 0;
+}
+
+.stm_markup__sidebar_divider aside.widget.widget_recent_entries ul li a:after {
+    display: none;
+}
+
+.stm_markup__sidebar_divider aside.widget.stm_widget_categories {
+    margin-bottom: 30px;
+}
+
+.stm_markup__sidebar_divider aside.widget.stm_widget_categories h5:before {
+    display: none !important;
+}
+
+.stm_markup__sidebar_divider aside.widget.stm_widget_categories ul li {
+    padding-left: 27px;
+}
+
+.stm_markup__sidebar_divider aside.widget.stm_widget_categories ul li:before {
+    content: '';
+    display: block;
+    top: 4px;
+    content: "" !important;
+    font-family: 'stmicons' !important;
+}
+
+.stm_markup__sidebar_divider aside.widget.stm_widget_categories.style_1 {
+    padding: 0 0 15px;
+    border-width: 0 0 1px 0;
+    border-color: #cececf !important;
+}
+
+.stm_markup__sidebar_divider aside.widget.widget_tag_cloud, .stm_markup__sidebar_divider aside.widget.widget_archive, .stm_markup__sidebar_divider aside.widget.stm_wp_widget_post_gallery {
+    padding-bottom: 0;
+    border-bottom: 0 !important;
+}
+
+.stm_markup__sidebar_divider .widget ul li,
+.stm_markup__sidebar_divider .widget ol li {
+    padding-left: 27px;
+}
+
+.stm_markup__sidebar_divider .widget ul li:before,
+  .stm_markup__sidebar_divider .widget ol li:before {
+    position: absolute;
+    left: 0;
+    top: 4px;
+    content: "" !important;
+    font-family: 'stmicons' !important;
+    border: 0;
+    top: 7px;
+}
+
+.stm_markup__sidebar_divider .widget ul li:last-child,
+  .stm_markup__sidebar_divider .widget ol li:last-child {
+    margin-bottom: 0 !important;
+}

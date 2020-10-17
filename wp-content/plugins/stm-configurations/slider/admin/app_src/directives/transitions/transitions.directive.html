@@ -1,0 +1,15 @@
+
+{{model}}
+<label>
+    <span>Select transition type</span>
+    <select class="form-control" ng-model="transitionType">
+        <option value="{{type}}"  ng-repeat="(type, list) in transitions track by $index">{{type}}</option>
+    </select>
+</label>
+
+<label ng-if="transitionType">
+    <span>Select transition</span>
+    <select class="form-control" ng-model="model">
+        <option value="{{anim}}" ng-repeat="anim in transitions[transitionType] track by $index">{{anim}}</option>
+    </select>
+</label>

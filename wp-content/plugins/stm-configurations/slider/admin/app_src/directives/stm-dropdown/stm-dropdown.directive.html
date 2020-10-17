@@ -1,0 +1,10 @@
+<div class="stm-dropdown" ng-class="showList ? 'opened' : ''" >
+    <div class="stm-dropdown__value" ng-click="showList = !showList">
+        <input ng-keydown="modelSelected = false" type="text" ng-model="label" ng-disabled="!filter" ng-model-options="{debounce: 200}">
+    </div>
+    <div class="stm-dropdown__list" ng-show="showList">
+        <div class="stm-dropdown__option" ng-repeat="(key, value) in filteredOptions track by $index" ng-click="selectOption(key, value)" ng-if="value">
+            {{value}}
+        </div>
+    </div>
+</div>

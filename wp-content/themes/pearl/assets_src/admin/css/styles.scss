@@ -1,0 +1,206 @@
+@import "vc_icons";
+
+/*Remove different plugins notices*/
+.akismet_activate,
+#vc_license-activation-notice {
+    display: none !important;
+}
+
+.vc_element-icon[class*="stmicon-"] {
+    background: none;
+    font-size: 30px;
+}
+
+.wpb_vc_param_value.textarea_html.content {
+    min-height: 45px;
+    padding: 15px 25px;
+    border: 3px dashed #ccc;
+}
+
+.wpb_element_title {
+    min-height: 40px;
+}
+
+.wpb_vc_param_value.textarea_html.content span {
+    color: #000 !important;
+}
+
+.ui-timepicker-container {
+    z-index: 900000 !important;
+}
+
+.vc_el-container {
+    .vc_element-icon {
+        background-size: initial !important;
+    }
+    #stm_slider {
+        i {
+            @include sprite($pslider);
+            &:before {
+                display: none;
+            }
+        }
+    }
+    a {
+        @each $sprite in $spritesheet-sprites {
+            $sprite-name: nth($sprite, 10);
+            .pearl-#{$sprite-name} {
+                @include sprite($sprite);
+            }
+        }
+        .icon-wpb-toggle-small-expand {
+            @include sprite($faq);
+        }
+        .icon-wpb-ui-accordion {
+            @include sprite($accordion);
+        }
+        .icon-wpb-map-pin {
+            @include sprite($google-maps)
+        }
+
+        .icon-wpb-row {
+            @include sprite($row);
+        }
+        .vc_icon-vc-section {
+            @include sprite($sections)
+        }
+        .icon-wpb-ui-separator-label {
+            @include sprite($sep-with-text)
+        }
+        .icon-wpb-pinterest {
+            @include sprite($pinterest)
+        }
+        .icon-wpb-images-carousel {
+            @include sprite($image_carousel)
+        }
+        .icon-wpb-images-stack {
+            @include sprite($image_gallery)
+        }
+        .icon-wpb-single-image {
+            @include sprite($single_image)
+        }
+        .icon-wpb-ui-tab-content {
+            @include sprite($tab_horiz)
+        }
+        .icon-wpb-ui-tab-content-vertical {
+            @include sprite($tab_vert)
+        }
+        .icon-wpb-layer-shape-text {
+            @include sprite($text)
+        }
+        .icon-wpb-tweetme {
+            @include sprite($twitter)
+        }
+        .icon-wpb-ui-pageable {
+            @include sprite($pageable)
+        }
+    }
+}
+
+#setting-error-tgmpa,
+#setting-error-booked,
+#tp_twitter_global_notification,
+.rs-update-notice-wrap {
+    display: none !important;
+}
+
+.stm_update_notice {
+    background-color: #fff;
+    padding: 15px;
+    font-size: 14px;
+    text-align: left;
+    margin: 25px 20px 0 2px;
+    border-left: 5px solid #71C674;
+}
+
+.stm_needs_install {
+    display: none;
+    &.notice-visible {
+        display: block;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+    }
+}
+
+body.appearance_page_tgmpa-install-plugins,
+body.pearl_page_my-pearl-demos,
+body.toplevel_page_my-pearl {
+    .stm_needs_install {
+        display: none;
+    }
+}
+
+.stm_update_notice__update {
+    position: relative;
+    padding-right: 120px;
+    .button {
+        position: absolute;
+        top: 9px;
+        right: 9px;
+    }
+}
+
+.stm_taxonomy_listing_image_chosen {
+    vertical-align: middle !important;
+    max-height: 60px;
+}
+
+.stm-choose-listing-image {
+    vertical-align: middle !important;
+}
+
+.stm-choose-listing-image .button-primary {
+    vertical-align: middle !important;
+}
+
+.stm-media-remove-all {
+    margin-left: 20px !important;
+}
+
+.butterbean-control.butterbean-control-color {
+    margin-bottom: 20px !important;
+    .wp-picker-container {
+        display: inline-block;
+        min-width: 300px;
+        position: relative;
+        padding-top: 30px;
+        .butterbean-label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            white-space: nowrap;
+        }
+        .wp-picker-clear,
+        .wp-color-picker {
+            display: none;
+        }
+        &.wp-picker-active {
+            .wp-picker-clear,
+            .wp-color-picker {
+                display: inline-block;
+            }
+        }
+    }
+    .wp-picker-input-wrap {
+        display: block !important;
+    }
+    .color-alpha {
+        height: 22px !important;
+    }
+}
+
+#butterbean-stm_default_fields-section-stm_stats_details[aria-hidden="false"] {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+    > div {
+        float: none;
+        width: 33.3333%;
+        &#butterbean-control-stm_post_views {
+            width: 100%;
+        }
+        label {
+            display: block;
+            padding: 0 15px;
+        }
+    }
+}

@@ -1,0 +1,55 @@
+<div class="stm_text-settings-panel">
+    <div class="font-select panel-unit">
+        <stm-dropdown options="vm.fontNames" filter="true" model="vm.scope.modelOptions.ff"></stm-dropdown>
+    </div>
+    <div class="font-size panel-unit">
+        <stm-dropdown options="vm.fontSizes" filter="true" model="vm.scope.modelOptions.fsz"
+                      callback="vm.adjustTa()"></stm-dropdown>
+    </div>
+    <div class="font-style panel-unit">
+        <div class="font-weight font-style__unit">
+            <input id="fw-{{::$id}}" type="checkbox" ng-model="vm.scope.modelOptions.fw">
+            <label for="fw-{{::$id}}">B</label>
+        </div>
+        <div class="font-italic font-style__unit">
+            <input id="fsi-{{::$id}}" type="checkbox" ng-model="vm.scope.modelOptions.fi">
+            <label for="fsi-{{::$id}}">I</label>
+        </div>
+        <div class="font-underline font-style__unit">
+            <input id="fsu-{{::$id}}" type="checkbox" ng-model="vm.scope.modelOptions.fu">
+            <label for="fsu-{{::$id}}">U</label>
+        </div>
+    </div>
+    <div class="text-color panel-unit">
+        <div md-color-picker="colorpickerDefaults" md-color-clear-button="false" ng-model="vm.scope.modelOptions.color"></div>
+        <span class="clear-color" ng-click="vm.scope.modelOptions.color = ''">
+            <i class="fa fa-close"></i>
+        </span>
+    </div>
+
+    <div class="text-align panel-unit">
+        <input id="text-align-left-{{::$id}}" type="radio" name="text-align" class="left" value="left" ng-model="vm.scope.modelOptions.align">
+        <label for="text-align-left-{{::$id}}">
+            <span></span><span></span><span></span>
+        </label>
+
+        <input id="text-align-center-{{::$id}}" type="radio" name="text-align" class="center" value="center" ng-model="vm.scope.modelOptions.align">
+        <label for="text-align-center-{{::$id}}">
+            <span></span><span></span><span></span>
+        </label>
+
+        <input id="text-align-right-{{::$id}}" type="radio" name="text-align" class="right" value="right" ng-model="vm.scope.modelOptions.align">
+        <label for="text-align-right-{{::$id}}">
+            <span></span><span></span><span></span>
+        </label>
+    </div>
+    <div class="link panel-unit" ng-if="vm.scope.linkUrl.length >= 0">
+        <i class="fa fa-link" ng-click="vm.showLinkInput = !vm.showLinkInput"></i>
+        <div class="link__input" ng-show="vm.showLinkInput">
+            <input type="text" ng-model="vm.scope.linkUrl">
+            <div class="confirm" ng-click="vm.showLinkInput = false">
+                <i class="fa fa-check"></i>
+            </div>
+        </div>
+    </div>
+</div>

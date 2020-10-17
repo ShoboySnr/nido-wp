@@ -1,0 +1,12 @@
+<div class="stm_content_align">
+    <div class="stm_align__button-wrapper stm_align_{{align}}"
+         ng-class="$parent.model === align ? 'active' : ''"
+         ng-repeat="align in aligns track by $index">
+        <div class="stm_align__button" ng-click="$parent.model = align">
+            <div class="icon-wrapper">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="label" ng-bind="align | translate"></div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+.stm_sidebar_style_19 .stm_widget_search.style_1 .widget.widget_search .search-form button {
+    width: 50px;
+    padding: 0 !important;
+}
+
+.stm_sidebar_style_19 .stm_widget_search.style_1 .widget.widget_search .search-form button:after {
+    display: none !important;
+}
+
+.stm_sidebar_style_19 .widget .widgettitle {
+    text-transform: none !important;
+    letter-spacing: -1px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.stm_sidebar_style_19 .widget .widgettitle h5 {
+    text-transform: none !important;
+    letter-spacing: -1px;
+    font-size: 20px;
+    font-weight: 600;
+}

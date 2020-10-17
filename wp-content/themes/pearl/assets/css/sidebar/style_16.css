@@ -1,0 +1,49 @@
+.stm_markup__sidebar_divider .widget {
+    margin-bottom: 30px;
+}
+
+.stm_markup__sidebar_divider .widget .widgettitle {
+    position: relative;
+    font-size: 16px;
+    margin-bottom: 60px;
+    max-width: 100%;
+}
+
+.stm_markup__sidebar_divider .widget .widgettitle h5 {
+    letter-spacing: 3.2px;
+}
+
+.stm_markup__sidebar_divider .widget .widgettitle:after, .stm_markup__sidebar_divider .widget .widgettitle:before {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -30px;
+}
+
+.stm_markup__sidebar_divider .widget .widgettitle:before {
+    background-color: #0b93d5;
+    width: 70px;
+    height: 3px;
+    z-index: 10;
+}
+
+.stm_markup__sidebar_divider .widget .widgettitle:after {
+    border-bottom: 1px solid #d1d1d1;
+    margin-bottom: 1.5px;
+    z-index: 5;
+    left: 75px;
+    right: 0;
+}
+
+.stm_markup__sidebar_divider .widget .mc4wp-form-fields {
+    border: 1px solid #eeeeee;
+    padding: 40px 24px 20px 25px;
+}
+
+.stm_markup__sidebar_divider .widget .mc4wp-form-fields input[type=submit] {
+    font-style: italic;
+}
+
+.stm_markup__sidebar_divider .widget .a-single.a-2 {
+    margin-bottom: 65px;
+}

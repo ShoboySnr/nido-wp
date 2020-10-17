@@ -1,0 +1,104 @@
+/*COLORS*/
+/*FONTS*/
+.stm_infobox_style_16 {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    background: url(/wp-content/themes/pearl/assets/img/infobox_16_bg.png) 0 50% no-repeat;
+    height: 300px;
+}
+
+.stm_infobox_style_16.img_align_right {
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+}
+
+.stm_infobox_style_16.img_align_right .stm_infobox__image {
+    margin: 0 0 0 15px;
+}
+
+.stm_infobox_style_16.img_align_right .stm_infobox__content {
+    padding: 20px 0 20px 60px;
+}
+
+.stm_infobox_style_16 .stm_infobox__image {
+    width: 300px;
+    margin-right: 15px;
+    position: relative;
+}
+
+.stm_infobox_style_16 .stm_infobox__label {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #d20817;
+    border-radius: 50%;
+    width: 102px;
+    height: 102px;
+    line-height: 102px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+}
+
+.stm_infobox_style_16 .stm_infobox__content {
+    padding: 20px 60px 20px 0;
+    -ms-flex: 1;
+    flex: 1;
+}
+
+.stm_infobox_style_16 .stm_infobox__content h4 {
+    margin-bottom: 30px;
+    white-space: nowrap;
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+    .stm_infobox_style_16 {
+        height: auto;
+    }
+
+    .stm_infobox_style_16, .stm_infobox_style_16.img_align_right {
+        -ms-flex-direction: column;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .stm_infobox_style_16 .stm_infobox__content {
+        padding: 10px 0 30px !important;
+    }
+
+    .stm_infobox_style_16 .stm_infobox__content h4 {
+        font-size: 18px;
+        line-height: 1.4;
+    }
+
+    .stm_infobox_style_16 .stm_infobox__content .btn {
+        font-size: 12px;
+    }
+
+    .stm_infobox_style_16 .stm_infobox__image {
+        width: 200px;
+        margin: 0 !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .stm_infobox_style_16 .stm_infobox__image {
+        margin-right: 30px;
+        max-width: 50%;
+    }
+
+    .stm_infobox_style_16 .stm_infobox__content {
+        padding-right: 30px;
+    }
+
+    .stm_infobox_style_16.img_align_right .stm_infobox__image {
+        margin-left: 30px;
+    }
+
+    .stm_infobox_style_16.img_align_right .stm_infobox__content {
+        padding-left: 30px;
+    }
+}

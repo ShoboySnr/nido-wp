@@ -1,0 +1,121 @@
+.stm_services_text_carousel_style_5 .owl-stage {
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.stm_services_text_carousel_style_5 .owl-stage-outer {
+    overflow: visible !important;
+}
+
+.stm_services_text_carousel_style_5 .services_carousel__item {
+    display: block;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+.stm_services_text_carousel_style_5 .services_carousel__item:hover {
+    margin-top: -10px;
+}
+
+.stm_services_text_carousel_style_5 .services_carousel__item:hover .services_carousel__content {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 52%, rgba(0, 0, 0, 0.8));
+}
+
+.stm_services_text_carousel_style_5 .services_carousel__item:hover .services_carousel__title i {
+    opacity: 1;
+}
+
+.stm_services_text_carousel_style_5 .services_carousel__content {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 69%, rgba(0, 0, 0, 0.7));
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    padding: 30px;
+    transition: all .2s;
+}
+
+.stm_services_text_carousel_style_5 .services_carousel__title {
+    font-size: 30px;
+    line-height: 38px;
+    font-weight: bold;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    color: #fff;
+}
+
+.stm_services_text_carousel_style_5 .services_carousel__title i {
+    font-size: 21px;
+    font-weight: bold;
+    margin-left: 9px;
+    opacity: 0;
+    transition: opacity .2s;
+}
+
+.stm_services_text_carousel_style_5 .services_carousel__price {
+    color: #fff;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.stm_services_text_carousel_style_5 .owl-nav {
+    position: absolute;
+    right: 0;
+    bottom: 100%;
+    margin-bottom: 42px;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.stm_services_text_carousel_style_5 .owl-nav .owl-prev,
+  .stm_services_text_carousel_style_5 .owl-nav .owl-next {
+    position: static;
+    border-color: black;
+    margin: 0 0 0 10px;
+    border: 1px solid #ddd;
+    color: #aaaaaa;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+.stm_services_text_carousel_style_5 .owl-nav .owl-prev:before,
+    .stm_services_text_carousel_style_5 .owl-nav .owl-next:before {
+    color: inherit;
+    font-family: 'stmicons';
+    line-height: 38px;
+}
+
+.stm_services_text_carousel_style_5 .owl-nav .owl-prev:hover,
+    .stm_services_text_carousel_style_5 .owl-nav .owl-next:hover {
+    background-color: #fff !important;
+}
+
+.stm_services_text_carousel_style_5 .owl-nav .owl-prev:before {
+    content: "\eb9a";
+}
+
+.stm_services_text_carousel_style_5 .owl-nav .owl-next:before {
+    content: "\eb9c";
+}
+
+.stm_services_text_carousel_style_5 .owl-dots .owl-dot {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+@media (max-width: 1024px) {
+    .stm_services_text_carousel_style_5 .owl-dots {
+        margin-bottom: 5px;
+    }
+}

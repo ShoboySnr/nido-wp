@@ -1,0 +1,26 @@
+<div class="stm_iconpicker__icon_picker">
+    <div>
+        <div class="stm_iconpicker__open-icons" ng-click="vm.showList = !vm.showList">
+            <i ng-class="(vm.scope.icon) ? vm.scope.icon : 'fa fa-plus'" class="select-icon"></i>
+            Select Icon
+        </div>
+    </div>
+    <div class="stm_iconpicker__list" ng-show="vm.showList">
+        <uib-tabset>
+            <uib-tab ng-repeat="setName in vm.iconsSetsNames" select="vm.changeSetName(setName)">
+                <div class="stm_iconpicker__search">
+                    <label ng-bind="'Search' | translate"></label>
+                    <input type="text" ng-model="vm.iconSearch" ng-model-options="{debounce: 200}">
+                </div>
+                <uib-tab-heading>
+                    <span ng-bind="setName"></span>
+                </uib-tab-heading>
+                <div class="stm_iconpicker__icons">
+                    <div class="stm_iconpicker__icon" ng-repeat="icon in vm.filteredIcons track by icon" ng-click="vm.selectIcon(icon)">
+                        <i ng-class="icon"></i>
+                    </div>
+                </div>
+            </uib-tab>
+        </uib-tabset>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+/*COLORS*/
+/*FONTS*/
+.stm-counter_style_16 .stm-counter__icon {
+    margin-right: 20px;
+    float: left;
+    background-color: #fff;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    font-size: 32px;
+    text-align: center;
+    line-height: 70px;
+}
+
+.stm-counter_style_16 .stm-counter__value, .stm-counter_style_16 .stm-counter__affix, .stm-counter_style_16 .stm-counter__prefix {
+    font-size: 48px;
+    line-height: 50px;
+    font-weight: 700;
+}
+
+.stm-counter_style_16 .stm-counter__label {
+    font-size: 16px;
+    line-height: 19px;
+}

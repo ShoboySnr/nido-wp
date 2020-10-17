@@ -1,0 +1,133 @@
+.stm_open_table_style_3 .powered-by-open-table {
+    display: none;
+}
+
+.stm_open_table_style_3 .otw-wrapper {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.stm_open_table_style_3 .otw-input-wrap {
+    position: relative;
+    margin: 0 15px 20px;
+    background-color: #fff;
+    border-radius: 30px;
+    border: 1px solid #dddddd;
+}
+
+.stm_open_table_style_3 .otw-input-wrap label {
+    position: absolute;
+    z-index: 99999;
+    pointer-events: none;
+    left: 18px;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0;
+    font-weight: 400;
+    line-height: 1;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.stm_open_table_style_3 .otw-input-wrap label:after, .stm_open_table_style_3 .otw-input-wrap label:before {
+    font-family: 'stmicons';
+    display: block;
+}
+
+.stm_open_table_style_3 .otw-input-wrap label:before {
+    font-size: 20px;
+}
+
+.stm_open_table_style_3 .otw-input-wrap label:after {
+    content: "\ebb0";
+    font-size: 14px;
+}
+
+.stm_open_table_style_3 .otw-input-wrap.otw-date-li label:before {
+    content: "\eba8";
+}
+
+.stm_open_table_style_3 .otw-input-wrap.otw-time-wrap label:before {
+    content: "\ebb8";
+}
+
+.stm_open_table_style_3 .otw-input-wrap.otw-party-size-wrap label:before {
+    content: "\ec37";
+}
+
+.stm_open_table_style_3 .otw-widget-form-wrap .selectric,
+.stm_open_table_style_3 .otw-widget-form-wrap .stm_select,
+.stm_open_table_style_3 .otw-widget-form-wrap input[type="text"] {
+    width: 260px;
+    height: 50px;
+    padding-left: 52px;
+    text-align: left;
+    background-color: transparent;
+    border: none;
+}
+
+.stm_open_table_style_3 .otw-widget-form-wrap button[type="submit"]:not(.btn),
+.stm_open_table_style_3 .otw-widget-form-wrap input[type="submit"]:not(.btn) {
+    height: 50px;
+    border-radius: 30px;
+    padding: 0 40px;
+    text-align: left;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.stm_open_table_style_3 .otw-widget-form-wrap .selectric p {
+    margin: 0;
+    width: 100%;
+    padding: 0;
+    line-height: 48px;
+    display: block;
+    height: auto;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.stm_open_table_style_3 .otw-widget-form-wrap .selectric .button {
+    display: none;
+}
+
+.stm_open_table_style_3 .otw-widget-form-wrap .stm_select .stm-select__val {
+    padding-left: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 48px;
+    padding: 0;
+}
+
+.stm_open_table_style_3 .otw-widget-form-wrap .stm_select .selectric, .stm_open_table_style_3 .otw-widget-form-wrap .stm_select:after {
+    display: none;
+}
+
+@media (max-width: 1023px) {
+    .stm_open_table_style_3 .otw-wrapper {
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    .stm_open_table_style_3 .otw-input-wrap {
+        margin: 0 5px 20px;
+    }
+
+    .stm_open_table_style_3 .otw-widget-form-wrap .selectric,
+  .stm_open_table_style_3 .otw-widget-form-wrap input[type="text"],
+  .stm_open_table_style_3 .otw-widget-form-wrap .stm_select {
+        width: 280px;
+    }
+}

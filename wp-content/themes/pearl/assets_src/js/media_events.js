@@ -1,0 +1,9 @@
+class MediaEventsController {
+    constructor() {
+
+    }
+
+    openVideo() {
+
+    }
+}

@@ -1,0 +1,26 @@
+<div class="stm_slide__element" ng-class="vm.scope.modelOptions.align ? 'align-' + vm.scope.modelOptions.align : ''">
+    <text-settings-panel></text-settings-panel>
+
+    <style ng-if="vm.scope.modelOptions.ff">
+        @import url('https://fonts.googleapis.com/css?family={{modelOptions.ff.replace(" ", "+")}}:400,700');
+    </style>
+
+    <style>
+        #slide-content-{{::$id}} {
+            {{vm.scope.modelOptions.fsz && vm.scope.modelOptions.fsz !== 'Default' ? 'font-size:' + vm.scope.modelOptions.fsz + 'px;' : ''}}
+            font-weight: {{vm.scope.modelOptions.fw ? 'bold' : 'normal'}};
+            {{vm.scope.modelOptions.ff && vm.scope.modelOptions.ff !== 'Default' ? 'font-family:' + vm.scope.modelOptions.ff + ';' : ''}}
+            text-decoration: {{vm.scope.modelOptions.fu ? 'underline' : 'none'}};
+            font-style: {{vm.scope.modelOptions.fi ? 'italic' : 'normal'}};
+            color: {{vm.scope.modelOptions.color ? vm.scope.modelOptions.color : '#fff'}};
+        }
+    </style>
+
+    <textarea ng-model="vm.scope.model"
+              id="slide-content-{{::$id}}"
+              ta-autosize
+              placeholder="{{vm.scope.placeholder}}"
+              rows="1"
+              ng-class="vm.scope.model.length > 0 ? 'has_content' : ''">
+    </textarea>
+</div>

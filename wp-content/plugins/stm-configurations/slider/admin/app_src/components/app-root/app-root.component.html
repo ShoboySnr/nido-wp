@@ -1,0 +1,559 @@
+<div ng-if="vm.sliderSettingsLoaded">
+    <div id="titlediv">
+        <h1 class="wp-heading-inline">Edit slider</h1>
+        <div id="titlewrap">
+            <input placeholder="Add slider name" type="text" ng-model="vm.stm_slider.post_title" size="30" id="title">
+        </div>
+    </div>
+    <uib-tabset class="main-tabs">
+        <uib-tab index="0" select="vm.mainTab = 1">
+            <uib-tab-heading>
+                <i class="fa fa-gear"></i>{{ 'SETTINGS' | translate}}
+            </uib-tab-heading>
+            <div class="stm-slider-settings__body">
+                <div class="stm-slider-setting__container">
+                    <div class="stm-slider-setting">
+                        <div class="stm-slider-setting__heading">
+                            <span ng-bind="'Slider Source' | translate"></span>
+                        </div>
+                        <div class="stm-slider-setting__controls">
+                            <div class="form-control">
+                                <input id="source_posts" value="posts" type="radio" ng-model="vm.stm_sliderMeta.source"
+                                       name="slider_source">
+                                <label for="source_posts" ng-bind="'Posts' | translate"></label>
+                            </div>
+                            <div class="form-control">
+                                <input id="source_custom" value="custom" type="radio"
+                                       ng-model="vm.stm_sliderMeta.source" name="slider_source">
+                                <label for="source_custom" ng-bind="'Custom' | translate"></label>
+                            </div>
+                            <div class="form-control" ng-if="vm.stm_sliderMeta.source === 'posts'">
+                                <input id="posts_count" type="text" ng-model="vm.stm_sliderMeta.posts_count"
+                                       name="posts_count">
+                                <label for="posts_count" ng-bind="'Posts count' | translate"></label>
+                            </div>
+                        </div>
+
+                        <div ng-if="vm.stm_sliderMeta.source == 'posts'">
+                            <div class="form-group">
+                                <div class="form-control">
+                                    <input type="text"
+                                           ng-model="vm.slide_post"
+                                           placeholder="Type to select posts"
+                                           uib-typeahead="post as post.name for post in vm.getPosts($viewValue)"
+                                           typeahead-wait-ms="300"
+                                           typeahead-on-select="vm.postSelected($item, $model, $label)"
+                                           typeahead-min-length="0">
+                                </div>
+                            </div>
+                            <div>
+                                <ul class="stm_slider_posts_builder">
+                                    <li ng-repeat="(key, post) in vm.stm_sliderMeta.post_slides">
+                                        {{post.name}}
+                                        <i ng-click="vm.removePost(key)" class="fa fa-close"></i>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="stm-slider-setting__container">
+                    <div class="stm-slider-setting">
+                        <div class="stm-slider-setting__heading">
+                            <span ng-bind="'Slider Width' | translate"></span>
+                        </div>
+                        <div class="stm-slider-setting__controls">
+                            <div class="form-control">
+                                <input id="width_px" value="px" type="radio" ng-model="vm.stm_sliderMeta.widthUnit"
+                                       name="widthUnit">
+                                <label for="width_px" ng-bind="'In Pixels (px)' | translate"></label>
+                            </div>
+                            <div class="form-control">
+                                <input id="width_percent" value="percent" type="radio"
+                                       ng-model="vm.stm_sliderMeta.widthUnit" name="widthUnit">
+                                <label for="width_percent" ng-bind="'In Percentage (%)' | translate"></label>
+                            </div>
+                            <div class="form-control">
+                                <input type="text"
+                                       size="{{vm.stm_sliderMeta.width ? vm.stm_sliderMeta.width.length + 1 : 1}}"
+                                       ng-model="vm.stm_sliderMeta.width">
+                                <label ng-bind="vm.stm_sliderMeta.widthUnit === 'px' ? 'px' : '%' | translate"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stm-slider-setting__container">
+
+                    <div class="stm-slider-setting">
+                        <div class="stm-slider-setting__heading">
+                            <span ng-bind="'Additional settings' | translate"></span>
+                        </div>
+                        <div class="stm-slider-setting__controls">
+                            <div class="form-control">
+                                <switcher model="vm.stm_sliderMeta.overflow_elements"></switcher>
+                                <label ng-bind="'Show overflowed items' | translate"></label>
+                            </div>
+                        </div>
+                        <div class="stm-slider-setting__controls">
+                            <div class="form-control">
+                                <input id="items_in_row"
+                                       type="text"
+                                       ng-model="vm.stm_sliderMeta.items_in_row"
+                                       name="posts_count">
+                                <label for="posts_count" ng-bind="'Items per row' | translate"></label>
+                            </div>
+                        </div>
+                        <div class="stm-slider-setting__controls">
+                            <div class="form-control">
+                                <input id="image_size"
+                                       type="text"
+                                       ng-model="vm.stm_sliderMeta.image_size"
+                                       name="posts_count">
+                                <label for="posts_count" ng-bind="'Image size (Example 370x400)' | translate"></label>
+                            </div>
+                        </div>
+                        <div class="stm-slider-setting__controls">
+                            <div class="form-control">
+                                <input id="item_margins" type="text" ng-model="vm.stm_sliderMeta.item_margins"
+                                       name="posts_count">
+                                <label for="posts_count" ng-bind="'Item margins' | translate"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stm-slider-setting__container">
+                    <div class="stm-slider-setting">
+                        <div class="stm-slider-setting__heading">
+                            <span ng-bind="'Slider Height' | translate"></span>
+                        </div>
+                        <div class="stm-slider-setting__controls">
+                            <div class="form-control">
+                                <input type="text"
+                                       size="{{vm.stm_sliderMeta.height ? vm.stm_sliderMeta.height.length + 1 : 1}}"
+                                       ng-model="vm.stm_sliderMeta.height">
+                                <label>px</label>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+                <div class="stm-slider-setting__container">
+                    <div class="stm-slider-setting">
+                        <div class="stm-slider-setting__heading">
+                            <span ng-bind="'Enable Navigation' | translate"></span>
+                        </div>
+                        <div class="stm-slider-setting__controls">
+                            <div class="form-control">
+                                <switcher model="vm.stm_sliderMeta.navigation"></switcher>
+                                <!--<label ng-bind="'Hide on Phone' | translate"></label>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stm-slider-setting__container">
+                    <div class="stm-slider-setting">
+                        <div class="stm-slider-setting__heading">
+                            <span ng-bind="'Hide On Mobile' | translate"></span>
+                        </div>
+                        <div class="stm-slider-setting__controls">
+                            <div class="form-control">
+                                <switcher model="vm.stm_sliderMeta.hideOnMobile"></switcher>
+                                <label ng-bind="'Hide on Phone' | translate"></label>
+                            </div>
+                            <div class="form-control">
+                                <switcher model="vm.stm_sliderMeta.hideOnTablet"></switcher>
+                                <label ng-bind="'Hide on Tablet' | translate"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stm-slider-setting__container">
+                    <div class="stm-slider-setting">
+                        <div class="stm-slider-setting__heading">
+                            <span ng-bind="'Animation' | translate"></span>
+                        </div>
+                        <div class="stm-slider-setting__controls">
+                            <div class="form-control">
+                                <stm-dropdown class="stm-slider__animation" options="vm.transitions"
+                                              model="vm.stm_sliderMeta.transition"></stm-dropdown>
+                            </div>
+                            <div class="form-control">
+                                <div class="animation-example">
+                                    <div class="example"
+                                         ng-class="vm.stm_sliderMeta.transition ? 'animated ' + vm.stm_sliderMeta.transition : ''">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stm-slider-setting__container">
+                    <div class="stm-slider-setting">
+                        <div class="stm-slider-setting__heading">
+                            <span ng-bind="'Autoplay' | translate"></span>
+                        </div>
+                        <div class="stm-slider-setting__controls">
+                            <div class="form-control">
+                                <switcher model="vm.stm_sliderMeta.autoplay"></switcher>
+                                <label ng-bind="'Enable autoplay' | translate"></label>
+                            </div>
+                            <div class="form-control" ng-if="vm.stm_sliderMeta.autoplay">
+                                <label for="autoplay_duration" ng-bind="'Autoplay Duration' | translate"></label>
+                                <input id="autoplay_duration"
+                                       size="{{vm.stm_sliderMeta.autoplayDuration ? vm.stm_sliderMeta.autoplayDuration.length + 1 : 1}}"
+                                       type="text" ng-model="vm.stm_sliderMeta.autoplayDuration">
+                                <label ng-bind="'ms' | translate"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </uib-tab>
+        <uib-tab index="1" class="stm-slider__slides-tab" select="vm.mainTab = 2"
+                 ng-show="vm.stm_sliderMeta.source === 'custom' ">
+            <uib-tab-heading>
+                <i></i>{{ 'SLIDES' | translate }}
+            </uib-tab-heading>
+            <div ui-sortable="vm.slidesSortableOptions" ng-model="vm.slides">
+
+                <uib-tabset type="pills" active="vm.currentSlide" class="stm_slides__tabs">
+
+
+                    <uib-tab ng-repeat="slide in vm.slides track by $index"
+                             select="vm.slideTab = $index"
+                             class="stm-slider__slide_tab-heading"
+                             index="$index">
+                        <uib-tab-heading>
+                            <div class="stm_slide__thumb" style="background-image: url({{slide.data.image.url}})"
+                                 ng-class="slide.data.image.url ? '' : 'no_image'">
+                                <span class="spinner is-active" ng-if="!slide.data.image.loaded"></span>
+                                <div class="stm_slide__thumb_control" ng-if="slide.data.image.loaded">
+                                    <button class="stm_slide__copy"
+                                            ng-click="vm.cloneSlide($index)">
+                                        <i class="fa fa-copy"></i>
+                                    </button>
+                                    <button class="stm_slide__delete"
+                                            ng-click="vm.deleteSlide(slide.id, $index)">
+                                        <i class="fa fa-trash-o"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="stm_slide__thumb_heading">
+                                <span class="stm_slide__index" ng-bind="$index + 1 + ' Slide'"></span>
+                            </div>
+                        </uib-tab-heading>
+
+
+                        <div class="stm_slide__settings">
+                            <div class="stm_slide__head">
+                                <div class="title">
+                                    {{slide.order}} Slide
+                                </div>
+
+                                <div class="slide-enable">
+                                    <label ng-bind="'Enable Slide' | translate"></label>
+                                    <switcher model="slide.enable"></switcher>
+                                </div>
+                            </div>
+                            <div class="stm_slide__sidebar">
+                                <div class="stm_slide__control-box">
+                                    <div class="stm_slide__bg stm_slide__control">
+                                        <span class="title" ng-bind="'BG image' | translate"></span>
+                                        <div class="stm_slide__bg-thumb"
+                                             style="background-image: url({{slide.data.image.url}})"
+                                             ng-if="slide.data.image.url">
+                                            <div class="bg-thumb__control" ng-if="slide.data.image.url">
+                                                <button class="stm_slide__copy"
+                                                        ng-click="vm.addSlideBackground(slide)">
+                                                    <i class="fa fa-pencil"></i>
+                                                </button>
+                                                <button class="stm_slide__delete"
+                                                        ng-click="vm.deleteSlideBackground(slide)">
+                                                    <i class="fa fa-trash-o"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <button class="stm_add-slide-bg" ng-if="!slide.data.image.url"
+                                                ng-click="vm.addSlideBackground(slide)">
+                                            <i class="fa fa-plus"></i>
+                                            <span ng-bind="'Add image' | translate"></span>
+                                        </button>
+                                    </div>
+
+                                    <div class="stm_slide__control stm_slide__overlay">
+                                        <div class="heading">
+                                            <span class="title" ng-bind="'Overlay' | translate"></span>
+                                            <switcher model="slide.overlay"></switcher>
+                                        </div>
+
+                                        <div class="stm_slide__overlay-example">
+                                            <div class="transparency_pattern"></div>
+                                            <div class="stm_slide__overlay-color"
+                                                 style="background-color: {{slide.overlayColor}}"></div>
+                                            <div md-color-picker="vm.colorpickerDefaults" md-color-clear-button="false"
+                                                 md-color-preview="false" ng-model="slide.overlayColor"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="stm_slide__control stm_slide__pattern">
+                                        <div class="heading">
+                                            <span class="title" ng-bind="'Pattern' | translate"></span>
+                                            <switcher model="slide.pattern"></switcher>
+                                        </div>
+
+                                        <div class="transparency_pattern"
+                                             ng-click="vm.addSlidePattern($index)"
+                                             ng-class="slide.data.image.patternUrl ? 'has_pattern' : ''"
+                                             style="{{slide.data.image.patternUrl ? 'background-image: url('+ slide.data.image.patternUrl  +') !important' : ''}}"></div>
+                                    </div>
+
+                                    <div class="stm_slide__control stm_slide__duration" ng-if="1 === 2">
+                                        <span class="title" ng-bind="'Duration (ms)' | translate"></span>
+                                        <input type="text" ng-model="slide.duration">
+                                        <div class="info">
+                                            <i class="fa fa-info-circle"></i> <span
+                                                ng-bind="'1 sec = 1000 ms' | translate"></span>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="stm_slide__control-box" ng-if="vm.stm_sliderMeta.navigation">
+                                    <h3>Navigation</h3>
+                                    <div class="stm_slide__control stm_slide__nav-title">
+                                        <div class="title" ng-bind="'Title' | translate"></div>
+                                        <input type="text" ng-model="slide.thumbnailHeading">
+                                    </div>
+                                    <div class="stm_slide__control stm_slide__nav-title">
+                                        <div class="title" ng-bind="'Content' | translate"></div>
+                                        <textarea ng-model="slide.thumbnailContent"></textarea>
+                                    </div>
+                                    <div class="stm_slide__control stm_slide__nav-title">
+                                        <icon-picker icon="slide.thumbnailIcon">
+
+                                        </icon-picker>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="stm_slide__main">
+                                <div class="stm_slide__control-box">
+                                    <div class="stm_slide__content-align">
+                                        <div class="title" ng-bind="'Content align' | translate"></div>
+                                        <content-align model="slide.contentAlign"></content-align>
+                                    </div>
+                                </div>
+
+                                <div class="stm_slide__control-box">
+                                    <div class="stm_slide__preview tbc"
+                                         ng-class="slide.data.image.url ? '' : 'no_image'"
+                                         ng-style="vm.preview.style">
+                                        <div ng-if="slide.data.image.url" class="stm_slide__bgi"
+                                             style="background-image: url({{slide.data.image.url}})">
+                                            <!--<img scale-value ng-src="{{slide.data.image.url}}">-->
+                                        </div>
+
+                                        <div class="stm_slide__preview_pattern"
+                                             ng-if="slide.pattern && slide.data.image.patternUrl"
+                                             style="background-image: url({{slide.data.image.patternUrl}})">
+
+                                        </div>
+
+                                        <div class="stm_slide__preview_overlay"
+                                             style="background-color: {{slide.overlayColor}}" ng-if="slide.overlay">
+
+                                        </div>
+
+                                        <div class="stm_slide__preview_content content-{{slide.contentAlign}}">
+                                            <div class="stm_slide__preview_content-block">
+                                                <slide-element model="slide.title" model-options="slide.titleOptions"
+                                                               placeholder="'Add title'"
+                                                               style="font-size: 40px">
+                                                </slide-element>
+
+                                                <slide-element model="slide.content"
+                                                               model-options="slide.contentOptions"
+                                                               placeholder="'Add sub-title'"
+                                                               style="font-size: 24px">
+
+                                                </slide-element>
+
+                                                <slide-element model="slide.button.label"
+                                                               model-options="slide.buttonOptions"
+                                                               link-url="slide.button.link" placeholder="'Add button'">
+
+                                                </slide-element>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <table class="stm_slides-table">
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <div class="settings-block">
+                                        <h3 ng-bind="'SLIDE_BG' | translate"></h3>
+                                        <div class="stm_slide__thumbnail">
+                                            <img ng-if="slide.data.image.url" height="50"
+                                                 ng-src="{{slide.data.image.url}}">
+                                            <div class="stm_slide__thumbnail-overlay"
+                                                 ng-if="slide.data.image.url">
+                                                <button class="btn btn-sm btn-danger"
+                                                        ng-click="slide.data.image.url = ''">Delete
+                                                </button>
+                                            </div>
+                                            <button class="stm_add-slide" ng-if="!slide.data.image.url"
+                                                    ng-click="vm.addSlideBackground(slide)">
+                                                <i class="fa fa-plus"></i>
+                                                <span ng-bind="'Add slide' | translate"></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="stm_slide__control">
+                                        <div class="settings-block">
+                                            <h3 ng-bind="'DURATION' | translate"></h3>
+                                            <input type="text" ng-model="slide.duration"> <span
+                                                class="text-muted">ms</span>
+                                        </div>
+                                        <div class="settings-block">
+                                            <h3 ng-bind="'MISC' | translate"></h3>
+                                            <label>
+                                                #ID
+                                                <input class="form-control" type="text" ng-model="slide.cssId">
+                                            </label>
+                                            <switcher model="slide.hidden">Hidden</switcher>
+                                        </div>
+                                        <div class="settings-block">
+                                            <h3 ng-bind="'OVERLAY' | translate"></h3>
+                                            <switcher model="slide.overlay">{{'ENABLE_OVERLAY' | translate}}
+                                            </switcher>
+                                            <input ng-if="slide.overlay" ng-model="slide.overlayColor"
+                                                   type="text" colorpicker="rgba">
+                                        </div>
+                                        <div class="settings-block" ng-if="vm.stm_sliderMeta.navigation">
+                                            <h3 ng-bind="'NAVIGATION_SETTINGS' | translate"></h3>
+                                            <label>
+                                                <span ng-bind="'THUMB_HEADING' | translate"></span>
+                                                <textarea rows="3" ng-model="slide.thumbnailHeading"></textarea>
+                                            </label>
+                                            <label>
+                                                <span ng-bind="'THUMB_CONTENT' | translate"></span>
+                                                <textarea rows="3" ng-model="slide.thumbnailContent"></textarea>
+                                            </label>
+
+                                            <div class="iconpicker">
+                                                <label>
+                                                    <span ng-bind="'THUMB_ICON' | translate"></span>
+                                                    <span uib-dropdown-toggle="" class="iconpicker__trigger"
+                                                          ng-click="vm.showIconpicker = true"
+                                                          ng-class="slide.thumbnailIcon || 'fa fa-plus'">
+
+                                                    </span>
+                                                </label>
+                                                <uib-tabset class="iconset" ng-show="vm.showIconpicker">
+                                                    <uib-tab ng-repeat="(name, set) in ::vm.icons track by name">
+                                                        <uib-tab-heading>
+                                                            <div class="setname">{{name}}</div>
+                                                        </uib-tab-heading>
+                                                        <div class="icon-search2">
+                                                            <input type="text" ng-model="vm.iconSearch"
+                                                                   ng-model-options="{debounce: 300}"
+                                                                   ng-change="vm.filterIcons(name)">
+                                                        </div>
+                                                        <div class="icon-wrap"
+                                                             ng-repeat="icon in vm.filteredIcons track by icon">
+                                                            <span ng-class="icon"
+                                                                  ng-click="slide.thumbnailIcon = icon; vm.showIconpicker = false"></span>
+                                                        </div>
+                                                        <span ng-if="!vm.filteredIcons">Icons not found</span>
+                                                    </uib-tab>
+                                                </uib-tabset>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <h3>Preview</h3>
+                                    <div class="stm_slide__image">
+                                        <img class="img-responsive" ng-src="{{slide.data.image.url}}">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="stm_slide__content">
+                                    <h3>Slider content</h3>
+                                    <div class="stm_slide__title stm_slide__content-control">
+                                        <label>
+                                            Title
+                                            <textarea type="text" ng-model="slide.title" rows="10"></textarea>
+                                        </label>
+                                    </div>
+
+                                    <div class="stm_slide__text stm_slide__content-control">
+                                        <label>
+                                            Content
+                                            <textarea type="text" ng-model="slide.content" rows="10"></textarea>
+                                        </label>
+                                    </div>
+
+                                    <div class="stm_slide__text stm_slide__content-control">
+                                        <label>
+                                            Button text
+                                            <input type="text" ng-model="slide.button.label">
+                                        </label>
+                                        <label>
+                                            Button link
+                                            <input type="text" ng-model="slide.button.link">
+                                        </label>
+
+                                        <label>
+                                            Content align
+                                            <select ng-model="slide.contentAlign">
+                                                <option value="left">Left</option>
+                                                <option value="center">Center</option>
+                                                <option value="right">Right</option>
+                                            </select>
+                                        </label>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </uib-tab>
+                    <button class="stm_add-slide" ng-if="!slide.data.image.url"
+                            ng-click="vm.addSlide()">
+                        <i class="fa fa-plus"></i>
+                        <span ng-bind="'Add slide' | translate"></span>
+                    </button>
+                </uib-tabset>
+            </div>
+        </uib-tab>
+    </uib-tabset>
+
+
+    <div class="stm_save__slider">
+        <button class="stm_slider-save" ng-click="vm.saveSlider()">
+            Save slider
+        </button>
+        <span ng-if="vm.sliderSavingState" class="spinner is-active"></span>
+    </div>
+
+</div>
+
+

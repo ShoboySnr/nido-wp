@@ -1,0 +1,40 @@
+switcher {
+  user-select: none;
+  input[type=checkbox] {
+    display: none;
+    &+label {
+      display: inline-block;
+      width: 30px;
+      height: 12px;
+      background: #a1a1a1;
+      border-radius: 15px;
+      position: relative;
+      transition: .2s;
+      margin: 0 7px;
+      &:before {
+        content: '';
+        position: absolute;
+        left: -7px;
+        top:-5px;
+        display: block;
+        width: 20px;
+        height: 20px;
+        border-radius: 100%;
+        background-color: #fff;
+        transition: .2s;
+        box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.35);
+
+
+      }
+    }
+
+    &:checked {
+      & + label {
+        background-color: #0073aa;
+        &:before {
+          left: 17px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,107 @@
+.stm_sidebar_style_17 .stm_markup__sidebar h5,
+.stm_sidebar_style_17 .stm_markup__sidebar .widgettitle {
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.stm_sidebar_style_17 .stm_markup__sidebar .stm_testimonials_style_1 .stm_testimonials__review {
+    margin-right: 0;
+    margin-bottom: 30px;
+    letter-spacing: -0.3px;
+    padding: 29px 30px 30px !important;
+    line-height: 24px !important;
+    font-style: normal !important;
+    font-weight: 300 !important;
+    font-size: 15px;
+}
+
+.stm_sidebar_style_17 .stm_markup__sidebar .stm_testimonials_style_1 .stm_testimonials__info {
+    margin-right: 0;
+    margin-left: auto;
+    text-align: right;
+}
+
+.stm_sidebar_style_17 .stm_markup__sidebar .stm_testimonials_style_1 .stm_testimonials__info h6 {
+    font-size: 12px;
+}
+
+.stm_sidebar_style_17 .stm_markup__sidebar .stm_testimonials_style_1 .stm_testimonials__info span {
+    font-size: 13px;
+}
+
+.stm_sidebar_style_17 .stm_markup__sidebar .stm_wp_widget_post_gallery_style_1 {
+    border-top: 4px solid transparent;
+    padding-top: 19px;
+}
+
+.stm_sidebar_style_17 .stm_markup__sidebar .stm_wp_widget_post_gallery_style_1 .widgettitle {
+    margin-bottom: 15px;
+}
+
+.stm_sidebar_style_17 .stm_markup__sidebar .widget_tag_cloud {
+    border-top: 4px solid transparent;
+    padding-top: 28px;
+}
+
+.stm_sidebar_style_17 .stm_markup__sidebar .widget_tag_cloud .widgettitle {
+    margin-bottom: 25px;
+    line-height: 24px;
+}
+
+.stm_sidebar_style_17 .stm_markup__sidebar .widget_tag_cloud .tagcloud a {
+    border: 0;
+    padding: 0 10px;
+    line-height: 31px;
+    background-color: #f6f6f6;
+    color: #111;
+}
+
+.stm_sidebar_style_17 .stm_markup__sidebar .widget_tag_cloud .tagcloud a:hover {
+    color: #fff;
+}
+
+.stm_sidebar_style_17 .stm_markup__sidebar .stm_posts_list_style_16 {
+    border-top: 4px solid transparent;
+    padding-top: 28px;
+}
+
+.stm_sidebar_style_17 .stm_markup__sidebar .stm_posts_list_style_16 .h4 {
+    line-height: 24px;
+    margin-bottom: 19px;
+    text-transform: uppercase;
+    padding: 0 15px;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.stm_sidebar_style_17 .stm_markup__sidebar .stm_posts_list_style_16 .stm_posts_list_single {
+    width: 100%;
+    margin-bottom: 17px !important;
+    border-bottom: 1px solid #cccccc;
+}
+
+.stm_sidebar_style_17 .stm_markup__sidebar .stm_posts_list_style_16 .stm_posts_list_single__info {
+    margin-bottom: 7px;
+}
+
+.stm_sidebar_style_17 .stm_markup__sidebar .stm_posts_list_style_16 .stm_posts_list_single__body h5 {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 18px;
+}
+
+.stm_sidebar_style_17 .stm_markup__sidebar .stm_posts_list_style_16 .stm_posts_list_single:last-child {
+    border-bottom: 0;
+}
+
+.stm_sidebar_style_17 .stm_markup__sidebar .mc4wp-form .mc4wp-form-fields input[type="email"]:focus {
+    border: 0;
+    background-color: #fff;
+}
+
+.stm_sidebar_style_17 .stm_markup__sidebar .mc4wp-form .mc4wp-form-fields .btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 16px auto 0;
+}

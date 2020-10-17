@@ -1,0 +1,50 @@
+.site-content .stm_markup__sidebar_divider .stm-button {
+    margin-bottom: 22px;
+}
+
+.site-content .stm_markup__sidebar_divider .stm-button:before {
+    display: none;
+}
+
+.site-content .stm_markup__sidebar_divider .widget .widgettitle {
+    text-transform: none;
+}
+
+.site-content .stm_markup__sidebar_divider .widget .widgettitle h5 {
+    font-size: 24px;
+    line-height: 24px;
+}
+
+.site-content .stm_markup__sidebar_divider .widget .widgettitle h5:before {
+    display: block;
+}
+
+.site-content .stm_markup__sidebar_divider .widget:before {
+    display: none;
+}
+
+.tp_recent_tweets > ul > li {
+    line-height: 22px;
+    padding-left: 34px !important;
+    background: none;
+}
+
+.tp_recent_tweets > ul > li:before {
+    content: "\f099";
+    font-family: 'FontAwesome';
+    font-size: 20px;
+    top: -1px;
+    color: rgba(0, 172, 237, 0.5);
+}
+
+.tp_recent_tweets > ul > li span {
+    font-size: 14px;
+}
+
+.tp_recent_tweets > ul > li a {
+    font-weight: normal;
+}
+
+.tp_recent_tweets > ul > li .twitter_time {
+    margin-top: 5px;
+}
